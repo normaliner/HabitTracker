@@ -104,10 +104,12 @@ h1 {
   border-radius: 4px;
   height: 5px;
   position: relative;
+  background: #e6e9ed;
 }
 .progress__cover-bar {
   position: absolute;
-  width: 50%;
+  transition: all 0.5s;
+  /* width: 50%; */
   height: 5px;
   border-radius: 4px;
   background: #5051f9;
@@ -163,6 +165,9 @@ input {
 input::placeholder {
   color: #8899a8;
 }
+input.error {
+  border: 1px solid red;
+}
 
 .habbit__form {
   display: flex;
@@ -194,4 +199,94 @@ input::placeholder {
 }
 .button:hover {
   background: #dcdaff;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cover_hidden {
+  display: none; 
+}
+
+.popup {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.popup__close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.icon_label {
+  color: #768396;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+.icon_select {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  border-radius: 14px;
+  border: 1px solid #5051f9;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+.icon:hover {
+  background: #6a6af8;
+}
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+.icon_active {
+  background: #5051f9;
+}
+
+.icon_active img {
+  filter: brightness(0) invert(1);
+}
+
+.popup__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.popup__form input{
+  width: 100%;
 }
