@@ -57,7 +57,6 @@ function validateAndGetFormData(form, fields) {
     form[field].classList.remove('error');
     if (!fieldValue) {
       form[field].classList.add('error');
-      return;
     }
     res[field] = fieldValue;
   }
@@ -106,7 +105,7 @@ function rerenderHead(activeHabbit) {
     activeHabbit.days.length / activeHabbit.target > 1
       ? 100
       : (activeHabbit.days.length / activeHabbit.target) * 100;
-  page.header.progressPercent.innerText = progress.toFixed() + '%';
+  page.header.progressPercent.innerText = progress.toFixed(0) + '%';
   page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`);
 }
 
@@ -136,7 +135,7 @@ function rerender(activeHabbitId) {
   if (!activeHabbit) {
     return;
   }
-  console.log(activeHabbitId);
+ 
   document.location.replace(document.location.pathname + '#' + activeHabbitId);
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
@@ -216,12 +215,11 @@ function addHabbit(event) {
   loadData();
   const hashId = Number(document.location.hash.replace('#', ''));
   console.log(hashId);
-  const urlHabbit = habbits.find((habbit) => (habbit.id = hashId));
+  const urlHabbit = habbits.find((habbit) => (habbit.id === hashId));
   console.log(urlHabbit);
   if (urlHabbit) {
     rerender(urlHabbit.id);
   } else {
     rerender(habbits[0].id);
-    rerender(habbits[1].id);
   }
 })();
